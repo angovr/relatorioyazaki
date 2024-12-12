@@ -1,1 +1,33 @@
 # relatorioyazaki
+<form id="relatorioForm">
+    <label>Responsável pelo Relatório:</label>
+    <input type="text" name="responsavel" required><br>
+    
+    <label>Semana:</label>
+    <input type="text" name="semana" required><br>
+
+    <label>Data:</label>
+    <input type="date" name="data" required><br>
+
+    <label>Turno:</label>
+    <input type="text" name="turno" required><br>
+
+    <label>Unidade de Negócio:</label>
+    <input type="text" name="unidade" required><br>
+
+    <h4>Problemas</h4>
+    <label>Equipamento:</label>
+    <input type="text" name="equipamento" required><br>
+
+    <label>Descrição do Problema:</label>
+    <textarea name="descricao"></textarea><br>
+
+    <label>Resolução, Causa Raiz:</label>
+    <textarea name="resolucao"></textarea><br>
+
+    <label>Paragem (min):</label>
+    <input type="number" name="paragem"><br>
+
+    <button type="button" onclick="gerarPDF()">Gerar PDF</button>
+</form>
+
