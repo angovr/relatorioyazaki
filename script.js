@@ -30,3 +30,4 @@ function gerarPDF() {
     // Baixar o PDF com o nome especificado
     doc.save('relatorio_passagem_turno.pdf');
 }
+
