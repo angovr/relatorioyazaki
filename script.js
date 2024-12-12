@@ -1,27 +1,32 @@
+// Função para gerar o PDF
 function gerarPDF() {
+    const { jsPDF } = window.jspdf; // Importando jsPDF
+    const doc = new jsPDF(); // Criando um novo documento PDF
+
+    // Selecionar o formulário e capturar os dados
     const form = document.getElementById('relatorioForm');
-    const data = new FormData(form);
+    const formData = new FormData(form);
 
-    // Configurar jsPDF
-    const doc = new jsPDF();
-    let y = 10;
+    let y = 20; // Posição inicial no PDF
 
-    // Título
+    // Título no PDF
     doc.setFontSize(16);
     doc.text("Relatório de Passagem de Turno", 10, y);
-    y += 10;
+    y += 10; // Avança para a próxima linha
 
-    // Dados do formulário
+    // Adicionando os dados do formulário no PDF
     doc.setFontSize(12);
-    for (let [key, value] of data.entries()) {
+    for (const [key, value] of formData.entries()) {
         doc.text(${key}: ${value}, 10, y);
         y += 10;
-        if (y > 280) { // Salta para nova página se necessário
+
+        // Adiciona uma nova página, caso chegue ao final
+        if (y > 280) {
             doc.addPage();
-            y = 10;
+            y = 20;
         }
     }
 
-    // Baixar PDF
+    // Baixar o PDF com o nome especificado
     doc.save('relatorio_passagem_turno.pdf');
 }
